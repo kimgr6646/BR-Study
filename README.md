@@ -1,3 +1,3 @@
 # BR-Study
 
-# Git 취지
+## Git 취지
