@@ -1,0 +1,589 @@
+## 기초2 ##
+
+** 클래스 **
+public class Hello {
+    ...
+}
+
+
+** 주석문 **
+// 한 라인 주석
+/*
+여러 라인 주석
+*/
+
+** main() 메소드 **
+public static void main(String[] args) {
+    ...
+}
+
+** 메소드 **
+public static int sum(int n, int m){
+    return n + m;
+}
+
+** 변수 선언 **
+int i = 20;
+char a;
+
+** 출력 **
+System.out.println("Hello");
+
+** 데이터 타입 **
+- 기본 : boolean char byte short int long float double
+- 레퍼런스 : 배열에 대한 레퍼런스, 클래스에 대한 레퍼런스, 인터페이스에 대한 레퍼런스
+
+** 문자열 **
+String toolName = "JDK";
+- + 연산 가능
+
+** 리터럴 **
+- 프로그램에 직접 표현한 값
+
+- 정수 리터럴 -> int 타입으로 자동 컴파일 (long 타입으로 지정하려면 long g = 24L;처럼 L이나 l 붙임)
+int n = 15;
+int m = 015;
+int k = 0x15;
+int b = 0b0101;
+
+- 실수 리터럴 -> double 타입으로 자동 처리 (f나 F 붙이면 float, d나 D를 붙이면 double로 강제 변환)
+double d = 0.1234;
+double e = 1234E-4;
+flaot f = 0.1234f;
+double w = .1234D;
+
+- 문자 리터럴
+char a = 'A';
+char b = '클';
+char c = \u0041; // 문자 'A'의 유니코드 값(0041)
+char d = \uae00; // 문자 '클'의 유니코드 값(ae00)
+
+- 논리 리터럴과 boolean 타입
+boolean a = true;
+boolean b = 10 > 0;
+boolean c = 1; // 자바에서는 숫자를 참, 거짓으로 사용 불가
+
+** 타입 변환 **
+- 자동 타입 변환 : 치환문이나 수식 내에서 타입이 일치하지 않을 때, 컴파일러는 오류 대신 작은 타입을 큰 타입으로 자동 변환함
+- 강제 타입 변환 : 개발자가 강제로 타입 변환을 지시함 ex) byte b = (byte) n; ->> 캐스팅이라고도 부름
+
+** Scanner를 이용한 키 입력 **
+- Scanner 객체 생성
+Scanner scanner = new Scanner(System.in);
+
+- import 문 사용
+import java.util.Scanner;
+
+- Scanner 클래스로 키 입력받기
+String name = scanner.next();
+int age = scanner.nextInt();
+double weight = scanner.nextDouble();
+boolean isSingle = scanner.nextBoolean();
+
+- Scanner 객체 닫기
+scanner.close();
+
+** 연산자 **
+- 증감 : ++ --
+- 산술 : + - * / %
+- 시프트 : >> << >>>
+- 비교 : > < >= <= == !=
+- 비트 : & | ^ ~
+- 논리 : && || ! ^
+- 조건 : ? :
+- 대입 : = *= += -= &= ^= |= <<= >>= >>>=
+
+** 조건문 **
+- 단순 if 문
+if (조건식) {
+    ...
+}
+
+- if-else 문
+if (조건식) {
+    ...
+}
+else {
+    ...
+}
+
+- 다중 if-else 문
+if (조건식1) {
+    ...
+}
+else if (조건식2) {
+    ...
+}
+else {
+   ...
+}
+
+- switch 문
+switch (식) {
+    case 값1:
+       실행 문장1;
+           break;
+    case 값2:
+           실행 문장2;
+        break;
+   default:
+       실행 문장 3;
+}
+
+** Open Callenge **
+import java.util.Scanner;
+public class Open_Challenge {
+  public static void main(String[] args) {
+    int x = -1;
+    System.out.println("가위바위보 게임입니다. 가위, 바위, 보 중에서 입력하세요.");
+    Scanner sd = new Scanner(System.in);
+    System.out.print("철수 >> ");
+    String ch = sd.next();
+    System.out.print("영희 >> ");
+    String young = sd.next();
+    if(ch.equals("가위")) {
+      if(young.equals("가위")){
+        x = 1;
+      }
+      else if(young.equals("바위")){
+        x = 0;
+      }
+      else {
+        x =- 1;
+      }
+    }
+    else if(ch.equals("바위")){
+			if(young.equals("가위")){
+				x=2;
+			} else if(young.equals("바위")){
+				x=1;
+			} else if(young.equals("보")){
+				x=0;
+			} else{
+				x=-1;
+			}
+		}
+    else if(ch.equals("보")){
+			if(young.equals("가위")){
+				x=0;
+			} else if(young.equals("바위")){
+				x=2;
+			} else if(young.equals("보")){
+				x=1;
+			} else{
+				x=-1;
+			}
+		}
+    else{
+			x=-1;
+		}
+		if(x==0){
+			System.out.println("영희가 이겼습니다.");
+		}
+    else if(x==1){
+			System.out.println("비겼습니다.");
+		}
+    else if(x==2){
+			System.out.println("철수가 이겼습니다.");
+			System.out.println(x);
+		}
+    else{
+			
+		}
+	}
+}
+
+** 실습문제 **
+Q1.
+import java.util.Scanner;
+public class Q1 {
+  public static void main(String[] args) {
+    Scanner sc = new Scaner(System.in);
+    int money;
+    double dollar;
+    System.out.print("원화를 입력하세요(단위 원)>>");
+    money = sc.nextInt();
+    dollar = (double)money / 1100;
+    System.out.print(money+"원 $"+dollar+"입니다.");
+    sc.close();
+  }
+}
+
+Q2.
+import java.util.Scanner;
+public class Q2 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int num, a, b;
+    System.out.print("2자리 정수 입력(10~99)>>");
+    num = sc.nextInt();
+    a = num / 10;
+    b = num % 10;
+    if(a==b)
+      System.out.print("YES! 10의 자리와 1의 자리가 같습니다.");
+    else
+      System.out.print("NO! 10의 자리와 1의 자리가 다릅니다.");
+    sc.close();
+  }
+}
+
+Q3.
+import java.util.Scanner;
+public class Q3 {
+  ublic static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int money, a, b, c, d, e, f, g;
+      
+      System.out.print("금액을 입력하시오>>");
+      money = sc.nextInt();
+      
+      a = money / 50000;
+      money = money - (a * 50000);
+      
+      b = money / 10000;
+      money = money - (b * 10000);
+      
+      c = money / 1000;
+      money = money - (c * 1000);
+      
+      d = money / 100;
+      money = money - (d * 100);
+      
+      e = money / 50;
+      money = money - (e * 50);
+      
+      f = money / 10;
+      money = money - (f * 10);
+      
+      g = money; // 1원 계산
+      
+      System.out.print("오만원권 "+a+"매");
+      System.out.print("만원권 "+b+"매");
+      System.out.print("천원권 "+c+"매");
+      System.out.print("백원 "+d+"매");
+      System.out.print("오십원 "+e+"매");
+      System.out.print("십원 "+f+"매");
+      System.out.print("일원 "+g+"매");
+      
+      sc.close();
+   }
+}
+
+Q4.
+import java.util.Scanner;
+public class Q4 {
+  public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int a, b, c;
+      
+      System.out.print("정수 3개 입력>>");
+      a = sc.nextInt();
+      b = sc.nextInt();
+      c = sc.nextInt();
+      
+      if((a < b && b < c) || (c < b && b < a)) {
+         System.out.print("중간 값은 "+b);
+      }
+      else if ((b < a && a < c)  || (c < a && a < b)) {
+         System.out.print("중간 값은 "+a);
+      }
+      else {
+         System.out.print("중간 값은 "+c);
+      }
+      
+      sc.close();
+   }
+}
+
+Q5.
+import java.util.Scanner;
+public class Q5 {
+   public static void main(String[] args) {
+	      Scanner sc = new Scanner(System.in);
+	      
+	      int a, b, c;
+		      
+	      System.out.print("정수 3개를 입력하시오>>");
+	      a = sc.nextInt();
+	      b = sc.nextInt();
+	      c = sc.nextInt();
+	      
+	      if((a + b < c) || (b + c < a ) || (a + c < b)) {
+	    	  System.out.print("삼각형이 되지 않습니다.");
+	      }
+	      else {
+	         System.out.print("삼각형이 됩니다.");
+	      }
+	      sc.close();
+	   }
+}
+
+Q6.
+import java.util.Scanner;
+public class Q6 {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int num, a = 1, b;
+      
+      System.out.print("1~99 사이의 정수를 입력하시오>>");
+      num = sc.nextInt();
+      
+      b = num % 10;
+      
+      if(num>=10)
+         a = num / 10;
+      	 if(num%10 == 0) {
+      		 b = -1;
+      	 }
+      
+      System.out.print("박수");
+      if(a%3 == 0)
+         System.out.print("짝");
+      if(b%3 == 0)
+         System.out.print("짝");
+      
+      sc.close();
+   }
+}
+
+Q7.
+import java.util.Scanner;
+public class Q7 {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int x, y;
+      System.out.print("점 (x, y)의 좌표를 입력하시오>>");
+      x = sc.nextInt();
+      y = sc.nextInt();
+      
+      if((100 <= x && x <= 200) && (100 <= y && y <= 200)) {
+         System.out.print("("+x+", "+y+")는 사각형 안에 있습니다.");
+      }
+      else {
+         System.out.print("("+x+", "+y+")는 사각형 안에 없습니다.");
+      }
+      sc.close();
+   }
+}
+
+Q8.
+import java.util.Scanner;
+public class Q8 {
+   public static boolean inRect(int x, int y) {
+       if((x >= 100 && x <= 200) && (y >= 100 && y <= 200))
+           return true;
+        else
+           return false;
+   }
+   
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int x1, y1;
+      int x2, y2;
+      boolean a, b; //a는 (x1,y1)의 결과, b는 (x2,y2)의 결과
+      
+      System.out.print("(x1, y1) 의 값을 입력해 주세요 >>");
+      x1 = sc.nextInt();
+      y1 = sc.nextInt();
+      System.out.print("(x2, y2) 의 값을 입력해 주세요 >>");
+      x2 = sc.nextInt();
+      y2 = sc.nextInt();
+      
+      a = inRect(x1,y1);
+      b = inRect(x2,y2);
+      
+      if(a == true || b == true) {
+         System.out.print("두 사각형은 충돌합니다.");
+      }
+      else {
+         System.out.print("두 사각형은 충돌하지 않습니다.");
+      }
+      sc.close();
+   }
+}
+
+Q9.
+import java.util.Scanner;
+public class java_study2_9 {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int x,y;
+      int r_x, r_y;
+      double r, distance;
+      
+      System.out.print("원의 중심과 반지름 입력>>");
+      r_x = sc.nextInt();
+      r_y = sc.nextInt();
+      r = sc.nextDouble();
+      System.out.print("점 입력>>");
+      x = sc.nextInt();
+      y = sc.nextInt();
+      
+      distance = Math.sqrt(((x-r_x)*(x-r_x))+((y-r_y)*(y-r_y)));
+      if(distance<r) {
+         System.out.print("점 ("+x+","+y+")는 원 안에 있다.");
+      }
+      else {
+         System.out.print("점 ("+x+","+y+")는 원 안에 없다.");
+      }
+      sc.close();
+   }
+}
+
+Q10.
+import java.util.Scanner;
+public class Q10 {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int x1, y1;
+      int x2, y2;
+      double r1, r2, distance;
+      
+      System.out.print("첫번째 원의 중심과 반지름 입력>>");
+      x1 = sc.nextInt();
+      y1 = sc.nextInt();
+      r1 = sc.nextDouble();
+      System.out.print("두번째 원의 중심과 반지름 입력>>");
+      x2 = sc.nextInt();
+      y2 = sc.nextInt();
+      r2 = sc.nextDouble();
+      
+      distance = Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)));
+      
+      if(distance <= r1+r2) {
+         System.out.print("두 원은 서로 겹친다.");
+      }
+      else {
+         System.out.print("두 원은 서로 겹치지 않는다.");
+      }
+      sc.close();
+   }
+}
+
+Q11.
+import java.util.Scanner;
+public class Q11 {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int num;
+      
+      System.out.print("달을 입력하세요(1~12)>>");
+      num = sc.nextInt();
+
+      //(1) if-else문 이용
+      if(3 <= num && num <= 5)
+         System.out.print("봄");
+      else if(6 <= num && num <= 8)
+         System.out.print("여름");
+      else if(9 <= num && num <= 11)
+         System.out.print("가을");
+      else if(num == 12 || num == 1 || num == 0)
+         System.out.print("겨울");
+      else
+         System.out.print("잘못입력");
+   
+      //(2) switch문 이용
+      switch(num) {
+      case 0:
+      case 1:
+         System.out.print("겨울");
+         break;
+      case 3:
+      case 4:
+      case 5:
+         System.out.print("봄");
+         break;
+      case 6:
+      case 7:
+      case 8:
+         System.out.print("여름");
+         break;
+      case 9:
+      case 10:
+      case 11:
+         System.out.print("가을");
+         break;
+      case 12:
+         System.out.print("겨울");
+         break;
+      default:
+         System.out.print("잘못입력");
+      }
+      sc.close();
+   }
+}
+
+Q12.
+import java.util.Scanner;
+public class Q12 {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      double a, c, result;
+      String b;
+      System.out.print("연산>>");
+      a = sc.nextDouble();
+      b = sc.next();
+      c = sc.nextDouble();
+      
+      //(1) if-else문 이용
+      if(b.equals("+")) {
+         result = a + c;
+         System.out.print(a+b+c+"의 계산 결과는 "+result);
+      }
+      else if(b.equals("-")) {
+         result = a - c;
+         System.out.print(a+b+c+"의 계산 결과는 "+result);
+      }
+      else if(b.equals("*")) {
+         result = a * c;
+         System.out.print(a+b+c+"의 계산 결과는 "+result);
+      }
+      else if(b.equals("/")) {
+         if(c==0) {
+            System.out.print("0으로 나눌 수 없습니다.");
+         }
+         else {
+            result = a / c;
+            System.out.print(a+b+c+"의 계산 결과는 "+result);
+         }
+      }
+      
+      //(2) switch문 이용
+      switch(b) {
+      case "+" :
+         result = a+c;
+         System.out.print(a+b+c+"의 계산 결과는 "+result);
+         break;
+      case "-":
+         result = a-c;
+         System.out.print(a+b+c+"의 계산 결과는 "+result);
+         break;
+      case "*":
+         result = a*c;
+         System.out.print(a+b+c+"의 계산 결과는 "+result);
+         break;
+      case "/":
+         if(c==0) {
+            System.out.print("0으로 나눌 수 없습니다.");
+            break;
+         }
+         else {
+            result = a / c;
+            System.out.print(a+b+c+"의 계산 결과는 "+result);
+            break;
+         }
+      default:
+         System.out.print("잘못 입력하였습니다.");
+      }
+      sc.close();
+   }
+}
