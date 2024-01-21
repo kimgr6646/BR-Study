@@ -1,1 +1,76 @@
+## 반복문과 배열 그리고 예외 처리 ##
 
+** 반복문 8*
+- for 문
+for (초기문; 조건식; 반복 후 작업) {
+  ...
+}
+- while 문
+while (조건식) {
+  ...
+}
+- do-while 문
+do {
+  ...
+} while(조건식);
+- continue 문 : 반복문을 빠져나가지 않으면서 즉시 다음 반복으로 넘어가고자 할 때
+continue;
+- break 문 : 하나의 반복문을 즉시 벗어날 때
+break;
+
+** 배열 **
+- 인덱스와 인덱스에 대응하는 데이터들로 이루어진 연속적인 자료 구조
+int intArray []; (int [] intArray; 도 가능)
+intArray = new int [5];
+- length : 배열의 크기 알 수 있음
+int size = intArray.length;
+- for-each문 : 배열이나 나열의 크기만큼 루프를 돌면서 각 원소를 순차적으로 접근
+for (변수 : 배열레퍼런스) {
+  ...
+}
+- 메소드에서 배열 리턴
+int[] makeArray() {
+  int temp[] = new int[4];
+  return temp;
+}
+
+** 다차원 배열 **
+int intArray [][];
+int [][] intArray;
+intArray = new int [2][5];
+
+** 비정방형 배열 **
+int i[][];
+i = new int[4][];
+i[0] = new int[1];
+i[1] = new int[2];
+i[2] = new int[3];
+i[3] = new int[4];
+
+** main() 메소드 **
+- 자바 응용프로그램의 실행이 시작되는 특별한 메소드
+- public 속성
+- static 속성
+- 리턴 타입은 void
+- 문자열 배열(String [])이 매개변수
+
+** 예외 처리 **
+try {
+  예외가 발생할 가능성이 있는 실행문
+}
+catch (처리할 예외 타입 선언) {
+  예외 처리문
+}
+finally {
+  예외 발생 여부와 상관없이 무조건 실행되는 문장
+}
+- 예외 종류
+ArithmeticException : 정수를 0으로 나눌 때 발생
+NullPointException : null 레퍼런스를 참조할 때 발생
+ClassCastException : 변환할 수 없는 타입으로 객체를 변환할 때 발생
+OutOfMemoryError : 메모리가 부족한 경우 발생
+ArrayIndexOutOfBoundsException : 배열의 범위를 벗어난 접근 시 발생
+IllegalArgumentException : 잘못된 인자 전달 시 발생
+IOException : 입출력 동장 실패 또는 인터럽트 시 발생
+NumberFormatException : 문자열이 나타내는 숫자와 일치하지 않는 타입의 숫자로 변환 시 발생
+InputMismatchException : Scanner 클래스이 nextInt()를 호출해 정수로 입력받고자 하였지만, 사용자가 'a' 등과 같이 문자를 입력한 경우
